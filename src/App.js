@@ -4,15 +4,48 @@ import CardItem from "./components/CardItem";
 import "./App.scss";
 import axios from "axios";
 
-const api = `https://pokeapi.co/api/v2/pokemon?offset=20&limit=20`;
-
 function App() {
   const [data, setData] = useState([]);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState(false);
   const [searchValue, setSearchValue] = useState("");
+  const [currentPage, setCurrentPage] = useState(20);
 
+  const api = `https://pokeapi.co/api/v2/pokemon?offset=${currentPage}&limit=20`;
+
+  const handleSearch = async (e) => {
+    e.preventDefault();
+    setData([]);
+    setError("");
+
+    setSearch(false);
+    setLoading(true);
+    const pokemon = searchValue.toLocaleLowerCase();
+    // console.log(pokemon);
+    // console.log("data...........", data);
+
+    if (searchValue.length > 0) {
+      try {
+        const response = await axios.get(
+          `https://pokeapi.co/api/v2/pokemon/${pokemon}`
+        );
+        const resData = response;
+        setData(resData.data);
+        setError(null);
+      } catch (err) {
+        console.log(err);
+        setError(`No pokemon found`);
+        setData(null);
+      } finally {
+        setSearch(true);
+        setLoading(false);
+      }
+    } else {
+      setLoading(false);
+      setError(`Enter pokemon name in search box`);
+    }
+  };
   const fetchApi = async () => {
     setData([]);
     setSearch(false);
@@ -20,7 +53,7 @@ function App() {
     try {
       const response = await axios.get(api);
       const resData = response.data.results;
-
+      console.log("resData===========", response.data);
       function pokemonDetails(result) {
         result.forEach(async (pokemon) => {
           const response = await axios.get(
@@ -40,36 +73,6 @@ function App() {
       setLoading(false);
     }
   };
-
-  const handleSearch = async (e) => {
-    e.preventDefault();
-    setData([]);
-    setError("");
-
-    setSearch(false);
-    setLoading(true);
-    const pokemon = searchValue.toLocaleLowerCase();
-    console.log(pokemon);
-    console.log("data...........", data);
-    try {
-      const response = await axios.get(
-        `https://pokeapi.co/api/v2/pokemon/${pokemon}`
-      );
-      const resData = response.data;
-      console.log(" Data..........", resData);
-      setData(resData);
-      console.log("resData..........", data);
-      setError(null);
-    } catch (err) {
-      console.log(err);
-      setError(`no pokemon found`);
-      setData(null);
-    } finally {
-      setSearch(true);
-      setLoading(false);
-    }
-  };
-
   useEffect(() => {
     fetchApi();
   }, []);
@@ -100,18 +103,20 @@ function App() {
             </>
           )}
 
-          {search ? (
+          {searchValue ? (
             <></>
           ) : (
-            <div className="row">
-              {data ? (
-                data.map((item, index) => (
-                  <CardItem key={index} data={item} index={index} />
-                ))
-              ) : (
-                <></>
-              )}
-            </div>
+            <>
+              <div className="row">
+                {data ? (
+                  data.map((item, index) => (
+                    <CardItem key={index} data={item} index={index} />
+                  ))
+                ) : (
+                  <></>
+                )}
+              </div>
+            </>
           )}
 
           {error ? (

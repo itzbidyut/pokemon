@@ -65,4 +65,3 @@ export default function PokemonModal({ data, closeModal }) {
     </div>
   );
 }
-//     style={{ width: `${item.base_stat}` }}

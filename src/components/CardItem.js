@@ -28,7 +28,9 @@ export default function CardItem({ data, index }) {
                 </div>
               </>
             )}
-            <p className="name">{data.name}</p>
+            <p className="name">
+              {data.name} - {data.order}
+            </p>
             <div className="type">
               {data.types?.map((item, index) => (
                 <p key={index}>{item.type.name}</p>

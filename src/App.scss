@@ -38,7 +38,7 @@ $text-color: rgba(4, 102, 102, 0.979);
     justify-content: space-between;
     .headerTitle {
       p {
-        font-size: 40px;
+        font-size: 36px;
         font-weight: 700;
         color: $text-color;
       }
@@ -89,7 +89,7 @@ $text-color: rgba(4, 102, 102, 0.979);
     border-radius: 5px;
     display: flex;
     justify-content: space-between;
-    background-color: aqua;
+    background-color: rgb(134, 240, 240);
     .index p {
       margin: 20px 0px 0px;
       margin-bottom: 0px;
@@ -97,7 +97,7 @@ $text-color: rgba(4, 102, 102, 0.979);
     .name {
       color: white;
       margin-top: 0px;
-      font-size: 32px;
+      font-size: 26px;
       text-transform: uppercase;
       margin-bottom: 10px;
     }
@@ -111,7 +111,7 @@ $text-color: rgba(4, 102, 102, 0.979);
       gap: 10px;
       p {
         padding: 4px 20px;
-        background-color: red;
+        background-color: rgb(6, 218, 218);
         color: white;
         border-radius: 10px;
       }
@@ -166,6 +166,22 @@ $text-color: rgba(4, 102, 102, 0.979);
       }
     }
   }
+  .dragon {
+    background-color: rgb(250, 117, 117);
+    .type {
+      p {
+        background-color: rgb(247, 71, 71);
+      }
+    }
+  }
+  .water {
+    background-color: rgb(89, 89, 253);
+    .type {
+      p {
+        background-color: rgb(49, 49, 255);
+      }
+    }
+  }
 }
 
 // PokemonModal
@@ -190,102 +206,7 @@ $text-color: rgba(4, 102, 102, 0.979);
     .col-12 {
       padding: 0px;
     }
-    .poison {
-      .pokemonLeft {
-        background-color: rgb(76, 160, 76);
-        .ability {
-          background-color: rgb(25, 129, 25);
-        }
-      }
-      .pokemonRight {
-        .baseTitle {
-          color: rgb(76, 160, 76);
-        }
-        .percentageBar {
-          background-color: rgb(76, 160, 76);
-        }
-      }
-    }
-    .electric {
-      .pokemonLeft {
-        background-color: rgb(248, 223, 78);
-        .ability {
-          background-color: rgb(211, 179, 0);
-        }
-      }
-      .pokemonRight {
-        .baseTitle {
-          color: rgb(248, 223, 78);
-        }
-        .percentageBar {
-          background-color: rgb(248, 223, 78);
-        }
-      }
-    }
-    .ground {
-      .pokemonLeft {
-        background-color: rgb(161, 139, 139);
-        .ability {
-          background-color: rgb(161, 115, 115);
-        }
-      }
-      .pokemonRight {
-        .baseTitle {
-          color: rgb(161, 139, 139);
-        }
-        .percentageBar {
-          background-color: rgb(161, 139, 139);
-        }
-      }
-    }
-    .normal {
-      .pokemonLeft {
-        background-color: rgb(148, 207, 247);
-        .ability {
-          background-color: rgb(74, 178, 247);
-        }
-      }
-      .pokemonRight {
-        .baseTitle {
-          color: rgb(148, 207, 247);
-        }
-        .percentageBar {
-          background-color: rgb(148, 207, 247);
-        }
-      }
-    }
-    .fairy {
-      .pokemonLeft {
-        background-color: rgb(255, 195, 250);
-        .ability {
-          background-color: rgb(250, 151, 242);
-        }
-      }
-      .pokemonRight {
-        .baseTitle {
-          color: rgb(255, 195, 250);
-        }
-        .percentageBar {
-          background-color: rgb(255, 195, 250);
-        }
-      }
-    }
-    .fire {
-      .pokemonLeft {
-        background-color: rgb(247, 186, 136);
-        .ability {
-          background-color: rgb(253, 156, 76);
-        }
-      }
-      .pokemonRight {
-        .baseTitle {
-          color: rgb(247, 186, 136);
-        }
-        .percentageBar {
-          background-color: rgb(247, 186, 136);
-        }
-      }
-    }
+
     .closeBtn {
       position: absolute;
       top: 20px;
@@ -311,6 +232,7 @@ $text-color: rgba(4, 102, 102, 0.979);
       }
     }
     .pokemonLeft {
+      background-color: rgb(6, 218, 218);
       padding: 70px 50px;
       border-bottom-left-radius: 20px;
       border-top-left-radius: 20px;
@@ -331,6 +253,7 @@ $text-color: rgba(4, 102, 102, 0.979);
           text-transform: capitalize;
         }
         .ability {
+          background-color: rgb(4, 189, 189);
           padding: 5px 40px;
           color: white;
           border-radius: 5px;
@@ -344,6 +267,7 @@ $text-color: rgba(4, 102, 102, 0.979);
       border-bottom-right-radius: 20px;
       border-top-right-radius: 20px;
       .baseTitle {
+        color: rgb(6, 218, 218);
         font-size: 22px;
         font-weight: 500;
         margin-bottom: 30px;
@@ -363,9 +287,138 @@ $text-color: rgba(4, 102, 102, 0.979);
           background-color: rgb(206, 204, 204);
           position: relative;
           .percentageBar {
+            background-color: rgb(4, 189, 189);
             height: 5px;
             border-radius: 10px;
           }
+        }
+      }
+    }
+    .poison {
+      .pokemonLeft {
+        background-color: rgb(76, 160, 76);
+        .ability {
+          background-color: rgb(25, 129, 25);
+        }
+      }
+      .pokemonRight {
+        .baseTitle {
+          color: rgb(76, 160, 76);
+        }
+        .percentageBar {
+          background-color: rgb(76, 160, 76) !important;
+        }
+      }
+    }
+    .water {
+      .pokemonLeft {
+        background-color: rgb(89, 89, 253);
+        .ability {
+          background-color: rgb(49, 49, 255);
+        }
+      }
+      .pokemonRight {
+        .baseTitle {
+          color: rgb(89, 89, 253);
+        }
+        .percentageBar {
+          background-color: rgb(89, 89, 253) !important;
+        }
+      }
+    }
+    .electric {
+      .pokemonLeft {
+        background-color: rgb(248, 223, 78);
+        .ability {
+          background-color: rgb(211, 179, 0);
+        }
+      }
+      .pokemonRight {
+        .baseTitle {
+          color: rgb(248, 223, 78);
+        }
+        .percentageBar {
+          background-color: rgb(248, 223, 78) !important;
+        }
+      }
+    }
+    .ground {
+      .pokemonLeft {
+        background-color: rgb(161, 139, 139);
+        .ability {
+          background-color: rgb(161, 115, 115);
+        }
+      }
+      .pokemonRight {
+        .baseTitle {
+          color: rgb(161, 139, 139);
+        }
+        .percentageBar {
+          background-color: rgb(161, 139, 139) !important;
+        }
+      }
+    }
+    .normal {
+      .pokemonLeft {
+        background-color: rgb(148, 207, 247);
+        .ability {
+          background-color: rgb(74, 178, 247);
+        }
+      }
+      .pokemonRight {
+        .baseTitle {
+          color: rgb(148, 207, 247);
+        }
+        .percentageBar {
+          background-color: rgb(148, 207, 247) !important;
+        }
+      }
+    }
+    .fairy {
+      .pokemonLeft {
+        background-color: rgb(255, 195, 250);
+        .ability {
+          background-color: rgb(250, 151, 242);
+        }
+      }
+      .pokemonRight {
+        .baseTitle {
+          color: rgb(255, 195, 250);
+        }
+        .percentageBar {
+          background-color: rgb(255, 195, 250) !important;
+        }
+      }
+    }
+    .fire {
+      .pokemonLeft {
+        background-color: rgb(247, 186, 136);
+        .ability {
+          background-color: rgb(253, 156, 76) !important;
+        }
+      }
+      .pokemonRight {
+        .baseTitle {
+          color: rgb(247, 186, 136);
+        }
+        .percentageBar {
+          background-color: rgb(247, 186, 136) !important;
+        }
+      }
+    }
+    .dragon {
+      .pokemonLeft {
+        background-color: rgb(250, 117, 117);
+        .ability {
+          background-color: rgb(247, 71, 71);
+        }
+      }
+      .pokemonRight {
+        .baseTitle {
+          color: rgb(250, 117, 117);
+        }
+        .percentageBar {
+          background-color: rgb(250, 117, 117) !important;
         }
       }
     }
