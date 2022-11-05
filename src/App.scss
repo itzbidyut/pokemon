@@ -12,6 +12,11 @@ $text-color: rgba(4, 102, 102, 0.979);
 
 // headerComponent
 .headerComponent {
+  position: sticky;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  z-index: 100;
   display: flex;
   justify-content: center;
   background-color: rgb(204, 252, 252);
@@ -42,16 +47,107 @@ $text-color: rgba(4, 102, 102, 0.979);
 }
 
 // app
-
-.container {
-  .pokimonContainer {
-    display: flex;
+.app {
+  margin-bottom: 200px;
+  .container {
+    .pokimonContainer {
+      display: flex;
+    }
   }
 }
 
 // CardItem
-.pokemonCard {
-  padding: 20px;
-  border: 1px solid gray;
+.pokemon {
+  cursor: pointer;
   margin: 20px 0px;
+  transition: 0.3s;
+  &:hover {
+    transform: scale(1.05);
+  }
+  .pokemonCard {
+    padding: 20px;
+    border: 1px solid white;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+
+    .index p {
+      margin: 20px 0px 0px;
+      margin-bottom: 0px;
+    }
+    .name {
+      color: white;
+      margin-top: 0px;
+      font-size: 32px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    img {
+      width: 150px;
+      transform: scale(1);
+    }
+
+    .type {
+      display: flex;
+      gap: 10px;
+      p {
+        padding: 4px 20px;
+        background-color: red;
+        color: white;
+        border-radius: 10px;
+      }
+    }
+    .pokemonStats {
+      display: none;
+    }
+  }
+
+  .poison {
+    background-color: rgb(76, 160, 76);
+    .type {
+      p {
+        background-color: rgb(25, 129, 25);
+      }
+    }
+  }
+  .electric {
+    background-color: rgb(248, 223, 78);
+    .type {
+      p {
+        background-color: rgb(211, 179, 0);
+      }
+    }
+  }
+  .ground {
+    background-color: rgb(161, 139, 139);
+    .type {
+      p {
+        background-color: rgb(161, 115, 115);
+      }
+    }
+  }
+  .normal {
+    background-color: rgb(148, 207, 247);
+    .type {
+      p {
+        background-color: rgb(74, 178, 247);
+      }
+    }
+  }
+  .fairy {
+    background-color: rgb(255, 195, 250);
+    .type {
+      p {
+        background-color: rgb(250, 151, 242);
+      }
+    }
+  }
+  .fire {
+    background-color: rgb(247, 186, 136);
+    .type {
+      p {
+        background-color: rgb(253, 156, 76);
+      }
+    }
+  }
 }

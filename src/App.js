@@ -7,7 +7,7 @@ import axios from "axios";
 const api = `https://pokeapi.co/api/v2/pokemon?offset=20&limit=20`;
 
 function App() {
-  const [data, setData] = useState("");
+  const [data, setData] = useState([]);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
 
@@ -15,7 +15,8 @@ function App() {
     try {
       const response = await axios.get(api);
       const resData = response.data.results;
-
+      // console.log("resData-------------------", resData);
+      // console.log("resData1--- end");
       function pokemonDetails(result) {
         result.forEach(async (pokemon) => {
           const response = await axios.get(
@@ -23,7 +24,8 @@ function App() {
           );
           const resData = response.data;
           setData((list) => [...list, resData]);
-          console.log(" Data==", data);
+          // console.log(" Data==", resData);
+          // console.log("resData2--- end");
         });
       }
       pokemonDetails(resData);
@@ -49,7 +51,7 @@ function App() {
           <div className="row">
             {data ? (
               data.map((item, index) => (
-                <CardItem name={item.name} index={index} height={item.height} />
+                <CardItem key={index} data={item} index={index} />
               ))
             ) : (
               <></>
