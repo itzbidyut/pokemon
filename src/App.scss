@@ -13,6 +13,13 @@ $text-color: rgba(4, 102, 102, 0.979);
 .stop-scrolling {
   overflow: hidden;
 }
+
+.load {
+  padding: 10px 30px;
+  border: 0px;
+  background-color: aqua;
+  color: rgb(10, 99, 99);
+}
 // headerComponent
 .headerComponent {
   position: sticky;
@@ -28,7 +35,7 @@ $text-color: rgba(4, 102, 102, 0.979);
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     .headerTitle {
       p {
         font-size: 40px;
@@ -44,6 +51,15 @@ $text-color: rgba(4, 102, 102, 0.979);
         outline: none;
         font-size: 18px;
         border: 2px solid rgba(59, 170, 170, 0.671);
+      }
+      button {
+        margin-left: 10px;
+        color: rgb(20, 119, 119);
+        padding: 8px 35px;
+        font-weight: 500;
+        border: none;
+        font-size: 20px;
+        background-color: rgba(94, 175, 175, 0.671);
       }
     }
   }
@@ -73,7 +89,7 @@ $text-color: rgba(4, 102, 102, 0.979);
     border-radius: 5px;
     display: flex;
     justify-content: space-between;
-
+    background-color: aqua;
     .index p {
       margin: 20px 0px 0px;
       margin-bottom: 0px;

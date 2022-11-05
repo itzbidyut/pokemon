@@ -3,8 +3,8 @@ import { useState, useEffect } from "react";
 export default function PokemonModal({ data, closeModal }) {
   const [stats, setStats] = useState([]);
 
-  console.log("PokemonModal=====", data);
-  console.log("data.stats.base_stat=====", data.stats[0].base_stat);
+  // console.log("PokemonModal=====", data);
+  // console.log("data.stats.base_stat=====", data.stats[0].base_stat);
 
   //   useEffect(() => {
   //     setStats((list) => data.stats.base_stat);
@@ -15,11 +15,12 @@ export default function PokemonModal({ data, closeModal }) {
   //     (previousValue, currentValue) => previousValue + currentValue
   //   );
   //   console.log("totalStat=====", totalStat);
+
   return (
     <div className="PokemonModal">
       <div className="pokemonBox">
         <div onClick={closeModal} className="closeBtn">
-          <span class="material-symbols-outlined">close</span>
+          <span className="material-symbols-outlined">close</span>
         </div>
         <div className={`row ${data.types[0].type.name}`}>
           <div className="col-12 col-md-6">

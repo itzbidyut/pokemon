@@ -1,6 +1,4 @@
- 
-
-export default function Header() {
+export default function Header({ handleSearch, setSearchValue, searchValue }) {
   return (
     <div className="headerComponent">
       <div className="container">
@@ -8,8 +6,13 @@ export default function Header() {
           <p className="title">Pokedex</p>
         </div>
         <div className="searchBox">
-          <form>
-            <input className="" placeholder="search pokemon" />
+          <form onSubmit={handleSearch}>
+            <input
+              value={searchValue}
+              placeholder="search pokemon"
+              onChange={(e) => setSearchValue(e.target.value)}
+            />
+            <button className="">Search</button>
           </form>
         </div>
       </div>
