@@ -1,24 +1,65 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from "react";
+import Header from "./components/Header";
+import CardItem from "./components/CardItem";
+import "./App.scss";
+import axios from "axios";
+
+const api = `https://pokeapi.co/api/v2/pokemon?offset=20&limit=20`;
 
 function App() {
+  const [data, setData] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(true);
+
+  const fetchApi = async () => {
+    try {
+      const response = await axios.get(api);
+      const resData = response.data.results;
+
+      function pokemonDetails(result) {
+        result.forEach(async (pokemon) => {
+          const response = await axios.get(
+            `https://pokeapi.co/api/v2/pokemon/${pokemon.name}`
+          );
+          const resData = response.data;
+          setData((list) => [...list, resData]);
+          console.log(" Data==", data);
+        });
+      }
+      pokemonDetails(resData);
+      setError(null);
+    } catch (err) {
+      console.log(err);
+      setError("Error");
+      setData(null);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchApi();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <div className="app">
+        <div className="container">
+          <div className="row">
+            {data ? (
+              data.map((item, index) => (
+                <CardItem name={item.name} index={index} height={item.height} />
+              ))
+            ) : (
+              <></>
+            )}
+            {error ? <div>{error}</div> : <></>}
+            {loading ? <div>loading.....</div> : <></>}
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
 
