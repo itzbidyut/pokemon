@@ -42,7 +42,31 @@ $text-color: rgba(4, 102, 102, 0.979);
       }
     }
   }
-
+  .grass {
+    background-color: rgb(6, 230, 118);
+    .type {
+      p {
+        background-color: rgb(13, 190, 102);
+      }
+    }
+  }
+  .bug {
+    background-color: rgb(158, 132, 145);
+    .type {
+      p {
+        background-color: rgb(124, 94, 109);
+      }
+    }
+  }
+  .steel,
+  .rock {
+    background-color: rgb(145, 145, 145);
+    .type {
+      p {
+        background-color: rgb(100, 100, 100);
+      }
+    }
+  }
   .poison {
     background-color: rgb(76, 160, 76);
     .type {
@@ -60,10 +84,10 @@ $text-color: rgba(4, 102, 102, 0.979);
     }
   }
   .ground {
-    background-color: rgb(161, 139, 139);
+    background-color: rgb(218, 182, 182);
     .type {
       p {
-        background-color: rgb(161, 115, 115);
+        background-color: rgb(206, 150, 150);
       }
     }
   }

@@ -46,6 +46,7 @@ function App() {
   };
 
   const fetchApi = async () => {
+    setLoading(true);
     setData([]);
     setSearch(false);
     setSearchValue("");
@@ -105,6 +106,7 @@ function App() {
                   <div key={data.id} className="col-12 col-md-6 col-lg-4">
                     <CardItem data={data} />
                   </div>
+
                   <div className="text-center">
                     <button className="load" onClick={fetchApi}>
                       Load all
@@ -122,26 +124,30 @@ function App() {
                       <CardItem data={item} />
                     </div>
                   ))}
-                  <div className="  mt-5  buttons">
-                    {currentPage > 1 ? (
-                      <button className="load mr-3" onClick={prevPage}>
-                        <span class="material-symbols-outlined">
-                          chevron_left
-                        </span>{" "}
-                        prev page
-                      </button>
-                    ) : (
-                      <></>
-                    )}
+                  {loading ? (
+                    <></>
+                  ) : (
+                    <div className="  mt-5  buttons">
+                      {currentPage > 1 ? (
+                        <button className="load mr-3" onClick={prevPage}>
+                          <span class="material-symbols-outlined">
+                            chevron_left
+                          </span>
+                          prev page
+                        </button>
+                      ) : (
+                        <></>
+                      )}
 
-                    <p> {currentPage} </p>
-                    <button className="load" onClick={nextPage}>
-                      next page{" "}
-                      <span class="material-symbols-outlined">
-                        navigate_next
-                      </span>
-                    </button>
-                  </div>
+                      <p> {currentPage} </p>
+                      <button className="load" onClick={nextPage}>
+                        next page
+                        <span class="material-symbols-outlined">
+                          navigate_next
+                        </span>
+                      </button>
+                    </div>
+                  )}
                 </div>
               )}
             </>
