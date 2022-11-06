@@ -294,7 +294,7 @@ $text-color: rgba(4, 102, 102, 0.979);
       }
     }
     .pokemonLeft {
-      padding: 20px 40px 30px !important;
+      padding: 20px 25px 30px !important;
       border-top-right-radius: 20px !important;
       border-top-left-radius: 20px !important;
       border-bottom-right-radius: 0px !important;
@@ -316,14 +316,14 @@ $text-color: rgba(4, 102, 102, 0.979);
           justify-content: space-around;
           .ability {
             font-size: 14px !important;
-            padding: 5px 20px;
+            padding: 5px 10px;
             margin-bottom: 0px;
           }
         }
       }
     }
     .pokemonRight {
-      padding: 40px 40px !important;
+      padding: 40px 0px !important;
       border-top-right-radius: 0px !important;
       border-top-left-radius: 0px !important;
       border-bottom-left-radius: 20px !important;
