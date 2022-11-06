@@ -89,6 +89,9 @@ $text-color: rgba(4, 102, 102, 0.979);
         font-weight: 500;
         margin-bottom: 30px;
       }
+      .total {
+        color: rgb(112, 112, 112);
+      }
       .statDetails {
         margin-bottom: 15px;
         .statName {
@@ -374,6 +377,10 @@ $text-color: rgba(4, 102, 102, 0.979);
       border-top-left-radius: 0px !important;
       border-bottom-left-radius: 20px !important;
       border-bottom-right-radius: 20px !important;
+      .total {
+        text-align: center;
+        margin-top: 15px;
+      }
       .statList {
         display: flex;
         flex-wrap: wrap;

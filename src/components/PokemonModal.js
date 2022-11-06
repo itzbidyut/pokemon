@@ -1,21 +1,21 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../styles/pokemonModal.scss";
 
 export default function PokemonModal({ data, closeModal }) {
-  // const [stats, setStats] = useState([]);
+  const [totalstats, setTotalstats] = useState([]);
 
-  // console.log("PokemonModal=====", data);
-  // console.log("data.stats.base_stat=====", data.stats[0].base_stat);
+  const findTotal = () => {
+    let grandTotel = 0;
+    const statList = data.stats.reduce(
+      (acc, poke) => [...acc, poke.base_stat],
+      []
+    );
+    setTotalstats(statList.reduce((prev, cur) => prev + cur, grandTotel));
+  };
 
-  //   useEffect(() => {
-  //     setStats((list) => data.stats.base_stat);
-  //     console.log("stats===============", stats);
-  //   }, [data]);
-
-  //   const totalStat = stats.reduce(
-  //     (previousValue, currentValue) => previousValue + currentValue
-  //   );
-  //   console.log("totalStat=====", totalStat);
+  useEffect(() => {
+    findTotal();
+  });
 
   return (
     <div className="PokemonModal">
@@ -63,7 +63,7 @@ export default function PokemonModal({ data, closeModal }) {
                 ))}
               </div>
 
-              {/* <p>{totalStat}</p> */}
+              <p className="total">Total : {totalstats}</p>
             </div>
           </div>
         </div>
