@@ -1,0 +1,139 @@
+$text-color: rgba(4, 102, 102, 0.979);
+
+// CardItem
+.pokemon {
+  cursor: pointer;
+  margin: 20px 0px;
+  transition: 0.3s;
+  &:hover {
+    transform: scale(1.05);
+  }
+  .pokemonCard {
+    padding: 20px;
+    border: 1px solid white;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(134, 240, 240);
+    .index p {
+      margin: 20px 0px 0px;
+      margin-bottom: 0px;
+    }
+    .name {
+      color: white;
+      margin-top: 0px;
+      font-size: 26px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    img {
+      width: 150px;
+      transform: scale(1);
+    }
+
+    .type {
+      display: flex;
+      gap: 10px;
+      p {
+        padding: 4px 20px;
+        background-color: rgb(6, 218, 218);
+        color: white;
+        border-radius: 10px;
+      }
+    }
+  }
+
+  .poison {
+    background-color: rgb(76, 160, 76);
+    .type {
+      p {
+        background-color: rgb(25, 129, 25);
+      }
+    }
+  }
+  .electric {
+    background-color: rgb(248, 223, 78);
+    .type {
+      p {
+        background-color: rgb(211, 179, 0);
+      }
+    }
+  }
+  .ground {
+    background-color: rgb(161, 139, 139);
+    .type {
+      p {
+        background-color: rgb(161, 115, 115);
+      }
+    }
+  }
+  .normal {
+    background-color: rgb(148, 207, 247);
+    .type {
+      p {
+        background-color: rgb(74, 178, 247);
+      }
+    }
+  }
+  .fairy {
+    background-color: rgb(255, 195, 250);
+    .type {
+      p {
+        background-color: rgb(250, 151, 242);
+      }
+    }
+  }
+  .fire {
+    background-color: rgb(247, 186, 136);
+    .type {
+      p {
+        background-color: rgb(253, 156, 76);
+      }
+    }
+  }
+  .dragon {
+    background-color: rgb(250, 117, 117);
+    .type {
+      p {
+        background-color: rgb(247, 71, 71);
+      }
+    }
+  }
+  .water {
+    background-color: rgb(89, 89, 253);
+    .type {
+      p {
+        background-color: rgb(49, 49, 255);
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .pokemon {
+    margin: 10px 0px;
+    .pokemonCard {
+      padding: 10px 20px;
+      .index p {
+        margin: 20px 0px 0px;
+        margin-bottom: 0px;
+      }
+      .name {
+        font-size: 20px;
+        margin-bottom: 8px;
+      }
+      img {
+        width: 120px;
+        transform: scale(1.2);
+      }
+
+      .type {
+        p {
+          font-size: 12px;
+          padding: 4px 15px;
+          margin-bottom: 0px;
+        }
+      }
+    }
+  }
+}

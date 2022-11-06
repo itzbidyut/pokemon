@@ -1,5 +1,6 @@
 import { useState } from "react";
 import PokemonModal from "./PokemonModal";
+import '../styles/cardItem.scss'
 
 export default function CardItem({ data, index }) {
   const [modal, setModal] = useState(false);

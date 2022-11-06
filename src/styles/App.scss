@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap");
+
+p {
+  font-family: "Ubuntu", sans-serif;
+}
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+.stop-scrolling {
+  // overflow: hidden;
+}
+
+.load {
+  padding: 10px 30px;
+  border: 0px;
+  background-color: aqua;
+  color: rgb(10, 99, 99);
+}
+
+// app
+.app {
+  margin-bottom: 200px;
+  .container {
+    .pokimonContainer {
+      display: flex;
+    }
+  }
+}

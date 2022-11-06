@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import CardItem from "./components/CardItem";
-import "./App.scss";
+import "./styles/App.scss";
 import axios from "axios";
 
 function App() {

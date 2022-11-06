@@ -1,14 +1,16 @@
+import "../styles/header.scss";
+
 export default function Header({ handleSearch, setSearchValue, searchValue }) {
   return (
     <div className="headerComponent">
       <div className="container">
         <div className="row">
-          <div className="col-12 col-md-6">
+          <div className="col-sm-12 col-md-4 col-lg-6">
             <div className="headerTitle">
               <p className="title">Pokedex</p>
             </div>
           </div>
-          <div className="col-12 col-md-6">
+          <div className="col-sm-12 col-md-8 col-lg-6">
             <div className="searchBox">
               <form onSubmit={handleSearch}>
                 <input

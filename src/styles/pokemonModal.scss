@@ -1,187 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap");
-
-p {
-  font-family: "Ubuntu", sans-serif;
-}
-* {
-  margin: 0px;
-  padding: 0px;
-}
-
 $text-color: rgba(4, 102, 102, 0.979);
-
-.stop-scrolling {
-  overflow: hidden;
-}
-
-.load {
-  padding: 10px 30px;
-  border: 0px;
-  background-color: aqua;
-  color: rgb(10, 99, 99);
-}
-// headerComponent
-.headerComponent {
-  position: sticky;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  z-index: 100;
-  background-color: rgb(204, 252, 252);
-  padding: 30px 0px;
-  .container {
-    width: 100%;
-
-    .headerTitle {
-      p {
-        font-size: 36px;
-        font-weight: 700;
-        color: $text-color;
-      }
-    }
-    .searchBox {
-      display: flex;
-      justify-content: flex-end;
-      input {
-        background-color: rgba(242, 250, 250, 0.671);
-        padding: 7px 20px;
-        width: 300px;
-        outline: none;
-        font-size: 18px;
-        border: 2px solid rgba(59, 170, 170, 0.671);
-      }
-      button {
-        margin-left: 10px;
-        color: rgb(20, 119, 119);
-        padding: 8px 35px;
-        font-weight: 500;
-        border: none;
-        font-size: 20px;
-        background-color: rgba(94, 175, 175, 0.671);
-      }
-    }
-  }
-}
-
-// app
-.app {
-  margin-bottom: 200px;
-  .container {
-    .pokimonContainer {
-      display: flex;
-    }
-  }
-}
-
-// CardItem
-.pokemon {
-  cursor: pointer;
-  margin: 20px 0px;
-  transition: 0.3s;
-  &:hover {
-    transform: scale(1.05);
-  }
-  .pokemonCard {
-    padding: 20px;
-    border: 1px solid white;
-    border-radius: 5px;
-    display: flex;
-    justify-content: space-between;
-    background-color: rgb(134, 240, 240);
-    .index p {
-      margin: 20px 0px 0px;
-      margin-bottom: 0px;
-    }
-    .name {
-      color: white;
-      margin-top: 0px;
-      font-size: 26px;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-    }
-    img {
-      width: 150px;
-      transform: scale(1);
-    }
-
-    .type {
-      display: flex;
-      gap: 10px;
-      p {
-        padding: 4px 20px;
-        background-color: rgb(6, 218, 218);
-        color: white;
-        border-radius: 10px;
-      }
-    }
-  }
-
-  .poison {
-    background-color: rgb(76, 160, 76);
-    .type {
-      p {
-        background-color: rgb(25, 129, 25);
-      }
-    }
-  }
-  .electric {
-    background-color: rgb(248, 223, 78);
-    .type {
-      p {
-        background-color: rgb(211, 179, 0);
-      }
-    }
-  }
-  .ground {
-    background-color: rgb(161, 139, 139);
-    .type {
-      p {
-        background-color: rgb(161, 115, 115);
-      }
-    }
-  }
-  .normal {
-    background-color: rgb(148, 207, 247);
-    .type {
-      p {
-        background-color: rgb(74, 178, 247);
-      }
-    }
-  }
-  .fairy {
-    background-color: rgb(255, 195, 250);
-    .type {
-      p {
-        background-color: rgb(250, 151, 242);
-      }
-    }
-  }
-  .fire {
-    background-color: rgb(247, 186, 136);
-    .type {
-      p {
-        background-color: rgb(253, 156, 76);
-      }
-    }
-  }
-  .dragon {
-    background-color: rgb(250, 117, 117);
-    .type {
-      p {
-        background-color: rgb(247, 71, 71);
-      }
-    }
-  }
-  .water {
-    background-color: rgb(89, 89, 253);
-    .type {
-      p {
-        background-color: rgb(49, 49, 255);
-      }
-    }
-  }
-}
-
 // PokemonModal
 
 .PokemonModal {
@@ -419,6 +236,135 @@ $text-color: rgba(4, 102, 102, 0.979);
           background-color: rgb(250, 117, 117) !important;
         }
       }
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .PokemonModal {
+    .pokemonBox {
+      width: 80%;
+      .col-12 {
+        padding: 0px;
+      }
+
+      .closeBtn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+
+        span {
+          border: 2px solid gray;
+          border-radius: 3px;
+          font-size: 30px;
+          font-weight: 700;
+          margin: 0px;
+          padding: 0px;
+        }
+      }
+      .pokemonLeft {
+        padding: 70px 20px;
+        border-bottom-left-radius: 20px;
+        border-top-left-radius: 20px;
+        .name {
+          font-size: 32px;
+          text-transform: uppercase;
+          font-weight: 700;
+        }
+        img {
+          width: 150px;
+          margin-bottom: 0px;
+        }
+        .abilitys {
+          .title {
+            color: white;
+            font-size: 18px;
+            font-weight: 700;
+            text-transform: capitalize;
+          }
+          .ability {
+            background-color: rgb(4, 189, 189);
+            padding: 5px 40px;
+            color: white;
+            border-radius: 5px;
+          }
+        }
+      }
+      .pokemonRight {
+        background-color: white;
+        height: 100%;
+        padding: 60px 40px;
+        border-bottom-right-radius: 20px;
+        border-top-right-radius: 20px;
+        .baseTitle {
+          color: rgb(6, 218, 218);
+          font-size: 22px;
+          font-weight: 500;
+          margin-bottom: 30px;
+        }
+        .statDetails {
+          margin-bottom: 15px;
+          .statName {
+            text-transform: capitalize;
+            font-size: 18px;
+            margin-bottom: 3px;
+            color: rgb(112, 112, 112);
+          }
+          .bar {
+            width: 150px;
+            border-radius: 10px;
+            height: 5px;
+            background-color: rgb(206, 204, 204);
+            position: relative;
+            .percentageBar {
+              background-color: rgb(4, 189, 189);
+              height: 5px;
+              border-radius: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .PokemonModal {
+    .pokemonBox {
+      width: 90%;
+      height: 90%;
+      overflow: scroll;
+      .col-12 {
+        padding: 0px;
+      }
+    }
+    .pokemonLeft {
+      padding: 20px 80px !important;
+      border-top-right-radius: 20px !important;
+      border-top-left-radius: 20px !important;
+      .name {
+        font-size: 20px;
+        margin-bottom: 0px;
+      }
+      img {
+        width: 150px;
+        margin-bottom: 0px;
+      }
+      .abilitys {
+        .title {
+          color: white;
+          font-size: 14px !important;
+        }
+        .ability {
+          font-size: 14px !important;
+          padding: 5px 20px;
+        }
+      }
+    }
+    .pokemonRight {
+      padding: 20px 100px !important;
+      border-bottom-left-radius: 20px !important;
+      border-bottom-right-radius: 20px !important;
     }
   }
 }

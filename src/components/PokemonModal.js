@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import "../styles/pokemonModal.scss";
 
 export default function PokemonModal({ data, closeModal }) {
   const [stats, setStats] = useState([]);
@@ -23,7 +24,7 @@ export default function PokemonModal({ data, closeModal }) {
           <span className="material-symbols-outlined">close</span>
         </div>
         <div className={`row ${data.types[0].type.name}`}>
-          <div className="col-12 col-md-6">
+          <div className="col-12 col-sm-6 col-md-6">
             <div className="pokemonLeft text-center">
               <p className="name ">{data.name}</p>
               <img
@@ -41,7 +42,7 @@ export default function PokemonModal({ data, closeModal }) {
               </div>
             </div>
           </div>
-          <div className="col-12 col-md-6">
+          <div className="col-12 col-sm-6 col-md-6">
             <div className="pokemonRight">
               <p className="baseTitle text-center">Base Stats</p>
               {data.stats.map((item, index) => (
