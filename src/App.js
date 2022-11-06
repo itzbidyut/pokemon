@@ -10,9 +10,10 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState(false);
   const [searchValue, setSearchValue] = useState("");
-  const [currentPage, setCurrentPage] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [offsetValue, setOffsetValue] = useState(0);
 
-  const api = `https://pokeapi.co/api/v2/pokemon?offset=${currentPage}&limit=20`;
+  const api = `https://pokeapi.co/api/v2/pokemon?offset=${offsetValue}&limit=20`;
 
   const handleSearch = async (e) => {
     e.preventDefault();
@@ -59,7 +60,7 @@ function App() {
           );
           const resData = response.data;
           setData((list) => [...list, resData]);
-          console.log("resData,,,,,,,,,,", resData);
+          // console.log("resData,,,,,,,,,,", resData);
         });
       }
       pokemonDetails(resData);
@@ -74,10 +75,14 @@ function App() {
   };
 
   const nextPage = () => {
-    setCurrentPage((prevCurrentPage) => prevCurrentPage + 20);
+    setCurrentPage((prevCurrentPage) => prevCurrentPage + 1);
+    setOffsetValue((prevOffsetValue) => prevOffsetValue + 20);
   };
   const prevPage = () => {
-    setCurrentPage((prevCurrentPage) => prevCurrentPage - 20);
+    if (currentPage > 1) {
+      setCurrentPage((prevCurrentPage) => prevCurrentPage - 1);
+      setOffsetValue((prevOffsetValue) => prevOffsetValue - 20);
+    }
   };
 
   useEffect(() => {
@@ -97,7 +102,9 @@ function App() {
             <>
               {data && (
                 <>
-                  <CardItem data={data} />
+                  <div key={data.id} className="col-12 col-md-6 col-lg-4">
+                    <CardItem data={data} />
+                  </div>
                   <div className="text-center">
                     <button className="load" onClick={fetchApi}>
                       Load all
@@ -110,17 +117,29 @@ function App() {
             <>
               {data && (
                 <div className="row">
-                  {data.map((item, index) => (
-                    <div key={data.id} className="col-12 col-md-6 col-lg-4">
-                      <CardItem data={item} index={index} />
+                  {data.map((item) => (
+                    <div key={item.id} className="col-12 col-md-6 col-lg-4">
+                      <CardItem data={item} />
                     </div>
                   ))}
                   <div className="  mt-5  buttons">
-                    <button className="load mr-3" onClick={prevPage}>
-                      prev page
-                    </button>
+                    {currentPage > 1 ? (
+                      <button className="load mr-3" onClick={prevPage}>
+                        <span class="material-symbols-outlined">
+                          chevron_left
+                        </span>{" "}
+                        prev page
+                      </button>
+                    ) : (
+                      <></>
+                    )}
+
+                    <p> {currentPage} </p>
                     <button className="load" onClick={nextPage}>
-                      next page
+                      next page{" "}
+                      <span class="material-symbols-outlined">
+                        navigate_next
+                      </span>
                     </button>
                   </div>
                 </div>

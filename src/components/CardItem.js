@@ -9,14 +9,14 @@ export default function CardItem({ data }) {
     setModal(true);
     document.body.classList.toggle("stop-scrolling");
   };
-  
+
   const closeModal = () => {
     setModal(false);
     document.body.classList.toggle("stop-scrolling");
   };
 
   return (
-    <>
+    <div>
       <div className="pokemon" onClick={showModal}>
         <div className={`pokemonCard ${data.types[0].type.name}`}>
           <div className="">
@@ -35,6 +35,6 @@ export default function CardItem({ data }) {
       </div>
 
       {modal ? <PokemonModal closeModal={closeModal} data={data} /> : <></>}
-    </>
+    </div>
   );
 }
