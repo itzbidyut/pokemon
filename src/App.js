@@ -18,12 +18,9 @@ function App() {
     e.preventDefault();
     setData([]);
     setError("");
-
     setSearch(false);
     setLoading(true);
     const pokemon = searchValue.toLocaleLowerCase();
-    // console.log(pokemon);
-    // console.log("data...........", data);
 
     if (searchValue.length > 0) {
       try {
@@ -46,6 +43,8 @@ function App() {
       setError(`Enter pokemon name in search box`);
     }
   };
+
+
   const fetchApi = async () => {
     setData([]);
     setSearch(false);
@@ -53,7 +52,7 @@ function App() {
     try {
       const response = await axios.get(api);
       const resData = response.data.results;
-      console.log("resData===========", response.data);
+
       function pokemonDetails(result) {
         result.forEach(async (pokemon) => {
           const response = await axios.get(
@@ -64,15 +63,17 @@ function App() {
         });
       }
       pokemonDetails(resData);
-      setError(null);
     } catch (err) {
       console.log(err);
       setError("Error");
       setData(null);
     } finally {
       setLoading(false);
+      setError(null);
     }
   };
+
+
   useEffect(() => {
     fetchApi();
   }, []);
@@ -86,9 +87,9 @@ function App() {
       />
       <div className="app">
         <div className="container">
-          {search && (
+          {search ? (
             <>
-              {data ? (
+              {data && (
                 <>
                   <CardItem data={data} />
                   <div className="text-center">
@@ -97,29 +98,18 @@ function App() {
                     </button>
                   </div>
                 </>
-              ) : (
-                <></>
               )}
             </>
-          )}
-
-          {search ? (
-            <></>
           ) : (
-            <>
-              <div className="row">
-                {data ? (
-                  data.map((item, index) => (
-                    <CardItem key={index} data={item} index={index} />
-                  ))
-                ) : (
-                  <></>
-                )}
-              </div>
-            </>
+            <div className="row">
+              {data &&
+                data.map((item, index) => (
+                  <CardItem key={index} data={item} index={index} />
+                ))}
+            </div>
           )}
 
-          {error ? (
+          {error && (
             <div className="my-5 py-5 ">
               <h1 className="mb-5">{error}...</h1>
               <div className="text-center">
@@ -128,15 +118,11 @@ function App() {
                 </button>
               </div>
             </div>
-          ) : (
-            <></>
           )}
-          {loading ? (
+          {loading && (
             <div className="my-5 py-5 ">
               <h1>Loading...</h1>
             </div>
-          ) : (
-            <></>
           )}
         </div>
       </div>
