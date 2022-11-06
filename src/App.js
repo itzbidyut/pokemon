@@ -10,7 +10,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState(false);
   const [searchValue, setSearchValue] = useState("");
-  const [currentPage, setCurrentPage] = useState(20);
+  const [currentPage, setCurrentPage] = useState(0);
 
   const api = `https://pokeapi.co/api/v2/pokemon?offset=${currentPage}&limit=20`;
 
@@ -44,7 +44,6 @@ function App() {
     }
   };
 
-
   const fetchApi = async () => {
     setData([]);
     setSearch(false);
@@ -60,6 +59,7 @@ function App() {
           );
           const resData = response.data;
           setData((list) => [...list, resData]);
+          console.log("resData,,,,,,,,,,", resData);
         });
       }
       pokemonDetails(resData);
@@ -73,10 +73,16 @@ function App() {
     }
   };
 
+  const nextPage = () => {
+    setCurrentPage((prevCurrentPage) => prevCurrentPage + 20);
+  };
+  const prevPage = () => {
+    setCurrentPage((prevCurrentPage) => prevCurrentPage - 20);
+  };
 
   useEffect(() => {
     fetchApi();
-  }, []);
+  }, [api]);
 
   return (
     <>
@@ -101,12 +107,25 @@ function App() {
               )}
             </>
           ) : (
-            <div className="row">
-              {data &&
-                data.map((item, index) => (
-                  <CardItem key={index} data={item} index={index} />
-                ))}
-            </div>
+            <>
+              {data && (
+                <div className="row">
+                  {data.map((item, index) => (
+                    <div key={data.id} className="col-12 col-md-6 col-lg-4">
+                      <CardItem data={item} index={index} />
+                    </div>
+                  ))}
+                  <div className="  mt-5  buttons">
+                    <button className="load mr-3" onClick={prevPage}>
+                      prev page
+                    </button>
+                    <button className="load" onClick={nextPage}>
+                      next page
+                    </button>
+                  </div>
+                </div>
+              )}
+            </>
           )}
 
           {error && (

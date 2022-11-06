@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "../styles/pokemonModal.scss";
 
 export default function PokemonModal({ data, closeModal }) {
-  const [stats, setStats] = useState([]);
+  // const [stats, setStats] = useState([]);
 
   // console.log("PokemonModal=====", data);
   // console.log("data.stats.base_stat=====", data.stats[0].base_stat);
@@ -36,12 +36,11 @@ export default function PokemonModal({ data, closeModal }) {
                 <p className="title">ability</p>
                 <div className="abilityList">
                   {data.abilities.map((item, index) => (
-                  <p className="ability" key={index}>
-                    {item.ability.name}
-                  </p>
-                ))}
+                    <p className="ability" key={index}>
+                      {item.ability.name}
+                    </p>
+                  ))}
                 </div>
-                
               </div>
             </div>
           </div>
@@ -49,21 +48,21 @@ export default function PokemonModal({ data, closeModal }) {
             <div className="pokemonRight">
               <p className="baseTitle text-center">Base Stats</p>
               <div className="statList">
-                  {data.stats.map((item, index) => (
-                <div key={index} className="statDetails">
-                  <p className="statName">
-                    {item.stat.name} {item.base_stat}
-                  </p>
-                  <div className="bar">
-                    <div
-                      className="percentageBar"
-                      style={{ width: `${item.base_stat}px` }}
-                    ></div>
+                {data.stats.map((item, index) => (
+                  <div key={index} className="statDetails">
+                    <p className="statName">
+                      {item.stat.name} {item.base_stat}
+                    </p>
+                    <div className="bar">
+                      <div
+                        className="percentageBar"
+                        style={{ width: `${item.base_stat}px` }}
+                      ></div>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
               </div>
-            
+
               {/* <p>{totalStat}</p> */}
             </div>
           </div>

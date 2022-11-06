@@ -58,6 +58,7 @@ $text-color: rgba(4, 102, 102, 0.979);
       }
       img {
         width: 150px;
+        height: 150px;
         margin-bottom: 0px;
       }
       .abilitys {
@@ -250,22 +251,16 @@ $text-color: rgba(4, 102, 102, 0.979);
 
       .pokemonLeft {
         padding: 70px 20px;
-        border-bottom-left-radius: 20px;
-        border-top-left-radius: 20px;
+
         .name {
           font-size: 32px;
-          text-transform: uppercase;
-          font-weight: 700;
         }
         img {
-          width: 150px;
           margin-bottom: 0px;
         }
         .abilitys {
           .title {
             font-size: 18px;
-            font-weight: 700;
-            text-transform: capitalize;
           }
           .ability {
             padding: 5px 40px;
@@ -304,6 +299,7 @@ $text-color: rgba(4, 102, 102, 0.979);
       }
       img {
         width: 100px;
+        height: 100px;
         margin-bottom: 0px;
       }
       .abilitys {
