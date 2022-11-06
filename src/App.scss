@@ -27,15 +27,11 @@ $text-color: rgba(4, 102, 102, 0.979);
   left: 0px;
   width: 100%;
   z-index: 100;
-  display: flex;
-  justify-content: center;
   background-color: rgb(204, 252, 252);
   padding: 30px 0px;
   .container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+    width: 100%;
+
     .headerTitle {
       p {
         font-size: 36px;
@@ -44,6 +40,8 @@ $text-color: rgba(4, 102, 102, 0.979);
       }
     }
     .searchBox {
+      display: flex;
+      justify-content: flex-end;
       input {
         background-color: rgba(242, 250, 250, 0.671);
         padding: 7px 20px;
