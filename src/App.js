@@ -17,10 +17,10 @@ function App() {
 
   const handleSearch = async (e) => {
     e.preventDefault();
+    setLoading(true);
     setData([]);
     setError("");
     setSearch(false);
-    setLoading(true);
     const pokemon = searchValue.toLocaleLowerCase();
 
     if (searchValue.length > 0) {
@@ -35,13 +35,14 @@ function App() {
         console.log(err);
         setError(`No pokemon found`);
         setData(null);
+        setLoading(true);
       } finally {
         setSearch(true);
         setLoading(false);
       }
     } else {
-      setLoading(false);
       setError(`Enter pokemon name in search box`);
+      setLoading(false);
     }
   };
 
@@ -61,7 +62,6 @@ function App() {
           );
           const resData = response.data;
           setData((list) => [...list, resData]);
-          // console.log("resData,,,,,,,,,,", resData);
         });
       }
       pokemonDetails(resData);
@@ -119,18 +119,20 @@ function App() {
             <>
               {data && (
                 <div className="row">
-                  {data.map((item) => (
-                    <div key={item.id} className="col-12 col-md-6 col-lg-4">
-                      <CardItem data={item} />
-                    </div>
-                  ))}
+                  {data
+                    .sort((a, b) => (a.id > b.id ? 1 : -1))
+                    .map((item) => (
+                      <div key={item.id} className="col-12 col-md-6 col-lg-4">
+                        <CardItem data={item} />
+                      </div>
+                    ))}
                   {loading ? (
                     <></>
                   ) : (
-                    <div className="  mt-5  buttons">
+                    <div className="mt-5  buttons">
                       {currentPage > 1 ? (
                         <button className="load mr-3" onClick={prevPage}>
-                          <span class="material-symbols-outlined">
+                          <span className="material-symbols-outlined">
                             chevron_left
                           </span>
                           prev page
@@ -142,7 +144,7 @@ function App() {
                       <p> {currentPage} </p>
                       <button className="load" onClick={nextPage}>
                         next page
-                        <span class="material-symbols-outlined">
+                        <span className="material-symbols-outlined">
                           navigate_next
                         </span>
                       </button>

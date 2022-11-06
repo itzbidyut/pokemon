@@ -7,7 +7,7 @@ $text-color: rgba(4, 102, 102, 0.979);
   width: 100%;
   z-index: 100;
   background-color: rgb(204, 252, 252);
-  padding: 30px 0px;
+  padding: 10px 0px;
   .container {
     width: 100%;
 
@@ -16,6 +16,7 @@ $text-color: rgba(4, 102, 102, 0.979);
         font-size: 36px;
         font-weight: 700;
         color: $text-color;
+        margin-bottom: 0px;
       }
     }
     .searchBox {

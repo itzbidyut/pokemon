@@ -17,6 +17,7 @@ export default function Header({ handleSearch, setSearchValue, searchValue }) {
                   value={searchValue}
                   placeholder="search pokemon"
                   onChange={(e) => setSearchValue(e.target.value)}
+                  required
                 />
                 <button className="">Search</button>
               </form>
