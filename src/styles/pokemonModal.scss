@@ -248,20 +248,6 @@ $text-color: rgba(4, 102, 102, 0.979);
         padding: 0px;
       }
 
-      .closeBtn {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-
-        span {
-          border: 2px solid gray;
-          border-radius: 3px;
-          font-size: 30px;
-          font-weight: 700;
-          margin: 0px;
-          padding: 0px;
-        }
-      }
       .pokemonLeft {
         padding: 70px 20px;
         border-bottom-left-radius: 20px;
@@ -277,52 +263,22 @@ $text-color: rgba(4, 102, 102, 0.979);
         }
         .abilitys {
           .title {
-            color: white;
             font-size: 18px;
             font-weight: 700;
             text-transform: capitalize;
           }
           .ability {
-            background-color: rgb(4, 189, 189);
             padding: 5px 40px;
-            color: white;
+
             border-radius: 5px;
           }
         }
       }
       .pokemonRight {
-        background-color: white;
         height: 100%;
         padding: 60px 40px;
         border-bottom-right-radius: 20px;
         border-top-right-radius: 20px;
-        .baseTitle {
-          color: rgb(6, 218, 218);
-          font-size: 22px;
-          font-weight: 500;
-          margin-bottom: 30px;
-        }
-        .statDetails {
-          margin-bottom: 15px;
-          .statName {
-            text-transform: capitalize;
-            font-size: 18px;
-            margin-bottom: 3px;
-            color: rgb(112, 112, 112);
-          }
-          .bar {
-            width: 150px;
-            border-radius: 10px;
-            height: 5px;
-            background-color: rgb(206, 204, 204);
-            position: relative;
-            .percentageBar {
-              background-color: rgb(4, 189, 189);
-              height: 5px;
-              border-radius: 10px;
-            }
-          }
-        }
       }
     }
   }
@@ -332,22 +288,22 @@ $text-color: rgba(4, 102, 102, 0.979);
   .PokemonModal {
     .pokemonBox {
       width: 90%;
-      height: 90%;
-      overflow: scroll;
+
       .col-12 {
         padding: 0px;
       }
     }
     .pokemonLeft {
-      padding: 20px 80px !important;
+      padding: 20px 40px 30px !important;
       border-top-right-radius: 20px !important;
       border-top-left-radius: 20px !important;
+      border-bottom-right-radius: 0px !important;
+      border-bottom-left-radius: 0px !important;
       .name {
-        font-size: 20px;
         margin-bottom: 0px;
       }
       img {
-        width: 150px;
+        width: 100px;
         margin-bottom: 0px;
       }
       .abilitys {
@@ -355,16 +311,28 @@ $text-color: rgba(4, 102, 102, 0.979);
           color: white;
           font-size: 14px !important;
         }
-        .ability {
-          font-size: 14px !important;
-          padding: 5px 20px;
+        .abilityList {
+          display: flex;
+          justify-content: space-around;
+          .ability {
+            font-size: 14px !important;
+            padding: 5px 20px;
+            margin-bottom: 0px;
+          }
         }
       }
     }
     .pokemonRight {
-      padding: 20px 100px !important;
+      padding: 40px 40px !important;
+      border-top-right-radius: 0px !important;
+      border-top-left-radius: 0px !important;
       border-bottom-left-radius: 20px !important;
       border-bottom-right-radius: 20px !important;
+      .statList {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
     }
   }
 }

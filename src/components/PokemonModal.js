@@ -34,18 +34,22 @@ export default function PokemonModal({ data, closeModal }) {
               />
               <div className="abilitys">
                 <p className="title">ability</p>
-                {data.abilities.map((item, index) => (
+                <div className="abilityList">
+                  {data.abilities.map((item, index) => (
                   <p className="ability" key={index}>
                     {item.ability.name}
                   </p>
                 ))}
+                </div>
+                
               </div>
             </div>
           </div>
           <div className="col-12 col-sm-6 col-md-6">
             <div className="pokemonRight">
               <p className="baseTitle text-center">Base Stats</p>
-              {data.stats.map((item, index) => (
+              <div className="statList">
+                  {data.stats.map((item, index) => (
                 <div key={index} className="statDetails">
                   <p className="statName">
                     {item.stat.name} {item.base_stat}
@@ -58,6 +62,8 @@ export default function PokemonModal({ data, closeModal }) {
                   </div>
                 </div>
               ))}
+              </div>
+            
               {/* <p>{totalStat}</p> */}
             </div>
           </div>
